@@ -12,12 +12,9 @@ use Override;
 
 readonly class CurlClient implements CurlClientInterface
 {
-    private CurlWrapperFactoryInterface $curlWrapperFactory;
-
     public function __construct(
-        ?CurlWrapperFactoryInterface $curlWrapperFactory = null,
+        private CurlWrapperFactoryInterface $curlWrapperFactory = new CurlWrapperFactory(),
     ) {
-        $this->curlWrapperFactory = $curlWrapperFactory ?? new CurlWrapperFactory();
     }
 
     #[Override]
